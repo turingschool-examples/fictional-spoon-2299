@@ -42,12 +42,14 @@ When you run `bundle exec rspec`, you should have 11 failing tests to start.
 
 ###  Overview
 
-We will be creating an application to track recipes and ingredients at Hell's Kitchen. 
+We are creating an application to track recipes and ingredients at Hell's Kitchen. 
 
-Recipes will have a name, complexity and genre. For example Pasta, 2 (integer), Italian.
+Recipes will have a name, complexity and genre. For example:  `name: "Pasta", complexity: 2 (integer), genre: "Italian"`.
 
-Ingredients will have a name and a cost stored as an integer.
+Ingredients will have a name and a cost stored as an integer. Example: `name: "noodles", cost: 3`
 
+
+Make sure all 11 failing tests you started with are passing before beginning user stories. 
  
 ### User Stories
  
