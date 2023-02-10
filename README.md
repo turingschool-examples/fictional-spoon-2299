@@ -13,7 +13,7 @@ RSpec and Shoulda-Matchers have been installed and set up.
 5. `bundle install`
 6. `rails db:{drop,create,migrate,seed}`
 
-When you run `bundle exec rspec`, you should have 11 failing tests to start.  
+When you run `bundle exec rspec`, you should have 6 failing tests to start.  
 
 ## Instructions
 
@@ -49,7 +49,7 @@ Recipes will have a name, complexity and genre. For example:  `name: "Pasta", co
 Ingredients will have a name and a cost stored as an integer. Example: `name: "noodles", cost: 3`
 
 
-Make sure all 11 failing tests you started with are passing before beginning user stories. 
+Make sure all 6 failing tests you started with are passing before beginning user stories. 
  
 ### User Stories
  
