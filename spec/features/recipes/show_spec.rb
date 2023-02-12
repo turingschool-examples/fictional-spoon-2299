@@ -28,5 +28,12 @@ describe "As a visitor" do
       expect(page).to have_content(@turkey.name)
       expect(page).to_not have_content(@bread.name)
     end
+
+    it "shows the total cost of all the ingredients in the recipe" do
+      visit "/recipes/#{@ratatouille.id}"
+
+      total_cost = @tomato.cost + @salt.cost + @turkey.cost
+      expect(page).to have_content("Total Cost: #{@total_cost}")
+    end
   end
 end
