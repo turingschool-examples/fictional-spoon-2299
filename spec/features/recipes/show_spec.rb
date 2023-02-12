@@ -27,9 +27,17 @@ describe 'As a visitor' do
       expect(page).to have_content("ground beef")
       expect(page).to have_content("tomato sauce")
       expect(page).to have_content("spaghetti noodles")
-
-
     end
-  
+
+    it "I see the total cost of all of the ingredients in the recipe." do
+      spaghetti = Recipe.create!(name: "Spaghetti Bolognese", complexity: 1, genre: "Italian")
+      beef = spaghetti.ingredients.create!(name: "ground beef", cost: 5)
+      sauce = spaghetti.ingredients.create!(name: "tomato sauce", cost: 4)
+      noods = spaghetti.ingredients.create!(name: "spaghetti noodles", cost: 3)
+
+      visit "/recipes/#{spaghetti.id}"
+
+      expect(page).to have_content("Total Cost: $12")
+    end
   end
 end
