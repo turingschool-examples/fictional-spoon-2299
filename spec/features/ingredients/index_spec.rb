@@ -16,6 +16,14 @@ RSpec.describe 'Ingredients Index Page', type: :feature do
 			expect(page).to have_content(butter.name)
 			expect(page).to have_content(butter.cost)
 		end
+
+		it 'has all ingredients sorted alphabetically by name' do
+			visit '/ingredients'
+			
+			expect(butter.name).to appear_before(eggs.name)
+			expect(eggs.name).to appear_before(flour.name)
+			expect(page).to have_content(flour.name)
+		end
 	end
 end
  
