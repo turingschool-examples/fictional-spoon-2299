@@ -34,7 +34,7 @@ RSpec.describe Recipe, type: :feature do
       visit "/recipes/#{pasta.id}"
 
       expect(page).to have_content("Total Cost:")
-      expect(page).to have_content(pasta.total_cost)
+      expect(page).to have_content(10)
     end
   end
 end
