@@ -7,7 +7,7 @@ RSpec.describe 'the ingredients index page' do
     pasta = Ingredient.create!(name: 'pasta', cost: 5)
 
     visit '/ingredients'
-    save_and_open_page
+    
     expect(page).to have_content("meat : 20")
     expect(page).to have_content("vegetable : 10")
     expect(page).to have_content("pasta : 5")
