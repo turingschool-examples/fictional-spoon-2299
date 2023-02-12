@@ -29,5 +29,13 @@ RSpec.describe 'Recipes Show Page', type: :feature do
 			total_cost = biscuits.ingredients.sum(:cost)
 			expect(page).to have_content("Total Cost: #{total_cost}")
 		end
+
+		it 'I see a form to add an ingredient to the recipe' do
+			visit "/recipes/#{biscuits.id}"
+			
+			expect(page).to have_field(:name)
+			expect(page).to have_field(:cost)
+			expect(page).to have_button('Add Ingredient')
+		end
 	end
 end
