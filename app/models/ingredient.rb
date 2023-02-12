@@ -5,4 +5,8 @@ class Ingredient < ApplicationRecord
   def self.total_cost
     Ingredient.sum(:cost)
   end
+
+  def self.sort_alphabetically_by_name
+    Ingredient.order(name: :asc)
+  end
 end
