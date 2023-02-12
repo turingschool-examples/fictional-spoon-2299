@@ -19,7 +19,7 @@ RSpec.describe 'the recipes show page' do
     expect(page).to have_content('Genre: Italian')
     expect(page).to have_content('meat')
     expect(page).to have_content('pasta')
-
+    expect(page).to_not have_content('vegetable')
   end
 
   it "lists a recipe's total ingredient cost" do
@@ -34,8 +34,7 @@ RSpec.describe 'the recipes show page' do
     recing4 = RecipeIngredient.create!(ingredient_id: vege.id, recipe_id: kebabs.id)
 
     visit "/recipes/#{spagetti.id}"
-    save_and_open_page
-
+   
     expect(page).to have_content("Total ingredient cost: 25")
   end
 end
