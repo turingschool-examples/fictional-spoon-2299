@@ -7,5 +7,7 @@ class Recipe < ApplicationRecord
   validates :complexity, presence: true
   validates :genre, presence: true
 
-
+  def sum_up
+    self.ingredients.sum(:cost)
+  end
 end
