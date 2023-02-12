@@ -4,17 +4,17 @@
 <h3>Ingredients:</h3>
 
 <% @ingredients.each do |ingredient| %>
-	<%= ingredient.name %>
+	<p><%= ingredient.name %>
 	<br>
 <% end %>
 
 <p>Total Cost: <%= @recipe.total_cost %></p>
 
 <h4>Add Ingredient</h4>
-<%= form_with url: '/ingredients', method: :post, local: true do |f| %>
-	<%= f.label :name, 'Name of Ingredient:' %>
-	<%= f.text_field :name %>
-	<%= f.label :cost, 'Ingredient Cost:' %>
-	<%= f.text_field :cost %>
+
+<%= form_with url: '/recipeingredients', method: :post, local: true do |f| %>
+	<%= f.label :ingredient_id, 'Ingredient ID:' %>
+	<%= f.number_field :ingredient_id %>
+	<%= f.hidden_field :recipe_id, value: "#{@recipe.id}" %>
 	<%= f.submit 'Add Ingredient' %>
 <% end %>
