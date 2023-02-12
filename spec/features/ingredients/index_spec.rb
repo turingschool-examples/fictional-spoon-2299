@@ -9,10 +9,12 @@ RSpec.describe "Ingredients Index Page" do
 
         visit '/ingredients'
         
-        expect(page).to have_content("Ground Beef: 2")
-        expect(page).to have_content("Salt: 4")
+        within(".ingredients") { 
+          expect(page).to have_content("Ground Beef: 2")
+          expect(page).to have_content("Salt: 4")
 
-        expect(ingredient_2.name).to appear_before(ingredient_1.name)
+          expect(ingredient_2.name).to appear_before(ingredient_1.name)
+        }
       end
     end
   end

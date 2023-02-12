@@ -14,24 +14,30 @@ RSpec.describe "Recipes Show Page" do
       end
 
       it 'can see the recipes attributes,a list of the names of each ingredient for the recipe and their total cost' do
-        expect(page).to have_content("Recipe: Taco Meat")
-        expect(page).to have_content("Complexity: 1")
-        expect(page).to have_content("Genre: Mexican")
-        expect(page).to have_content("Ingredients: Ground Beef, Salt, Taco Seasoning")
-        expect(page).to have_content("Total Cost: 7")
-        expect(page).to_not have_content("Onion")
+        within(".recipe_container") {
+          expect(page).to have_content("Recipe: Taco Meat")
+          expect(page).to have_content("Complexity: 1")
+          expect(page).to have_content("Genre: Mexican")
+          expect(page).to have_content("Ingredients: Ground Beef, Salt, Taco Seasoning")
+          expect(page).to have_content("Total Cost: 7")
+          expect(page).to_not have_content("Onion")
+        }
       end
 
       it 'can see a form to add ingredients to the recipe and when submitted, be redirected to the show page with ingredients added to recipe' do
-        expect(page).to have_content("Add Ingredients")
-        expect(page).to have_field(:ingredient_id)
-        expect(page).to have_button("Submit")
+        within(".add_ingredients") { 
+          expect(page).to have_content("Add Ingredients") 
+          expect(page).to have_field(:ingredient_id)
+          expect(page).to have_button("Submit")
+        }
 
         fill_in :ingredient_id, with: "#{@extra_ingredient.id}"
         click_on "Submit"
-
-        expect(current_path).to eq("/recipes/#{@recipe.id}")
-        expect(page).to have_content("Onion")
+        
+        within(".recipe_container") {
+          expect(current_path).to eq("/recipes/#{@recipe.id}")
+          expect(page).to have_content("Onion")
+        }
       end
 
       it 'will not add ingredient the user submitted ID was not found and present an error message' do
@@ -39,7 +45,7 @@ RSpec.describe "Recipes Show Page" do
         click_on "Submit"
 
         expect(current_path).to eq("/recipes/#{@recipe.id}")
-        expect(page).to have_content("Recipe Ingredient not added: Unknown Ingredient ID")
+        within(".flash_message") { expect(page).to have_content("Recipe Ingredient not added: Unknown Ingredient ID") }
       end
     end
   end
