@@ -16,4 +16,8 @@ class Recipe < ApplicationRecord
   def add_ingredient_cost
     ingredients.sum(:cost)
   end
+
+  def order_names
+    ingredients.name.order
+  end
 end

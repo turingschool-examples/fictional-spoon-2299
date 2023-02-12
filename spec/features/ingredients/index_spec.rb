@@ -13,6 +13,11 @@ RSpec.describe 'Ingredient Show Page' do
 
     expect(page).to have_content(ingredient_2.name)
     expect(page).to have_content(ingredient_2.cost)
+  end
 
+  it 'I see that the list of ingredients is sorted alphabetically by name' do
+    visit "/ingredients"
+
+    expect(ingredient_2.name).to appear_before(ingredient_1.name)
   end
 end

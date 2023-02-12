@@ -26,4 +26,10 @@ RSpec.describe Recipe, type: :model do
       expect(recipe.add_ingredient_cost).to eq(204)
     end
   end
+
+  describe '#order_names' do
+    it 'sorts ingredient names alphabetically by name' do
+      expect(recipe.order_names).to eq([ingredient_2.name, ingredient_1.name])
+    end
+  end
 end
