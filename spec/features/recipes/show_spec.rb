@@ -7,15 +7,11 @@ RSpec.describe 'Recipes Show Page', type: :feature do
 		let!(:butter) { Ingredient.create!(name: 'Butter', cost: 3) }
 		
 		let!(:biscuits) { Recipe.create!(name: 'Biscuits', complexity: 1, genre: 'Bread') }
-		let!(:cookies) { Recipe.create!(name: 'Sugar Cookies', complexity: 1, genre: 'dessert') }
-
+\
 		let!(:biscuits_ingredients_1) { RecipeIngredient.create!(recipe: biscuits, ingredient: flour)}
 		let!(:biscuits_ingredients_2) { RecipeIngredient.create!(recipe: biscuits, ingredient: eggs)}
 		let!(:biscuits_ingredients_3) { RecipeIngredient.create!(recipe: biscuits, ingredient: butter)}
-		let!(:cookies_ingredients_1) { RecipeIngredient.create!(recipe: cookies, ingredient: flour)}
-		let!(:cookies_ingredients_2) { RecipeIngredient.create!(recipe: cookies, ingredient: eggs)}
-		let!(:cookies_ingredients_3) { RecipeIngredient.create!(recipe: cookies, ingredient: butter)}
-		
+
 		it 'I see recipe name, complexity and genre' do
 			visit "/recipes/#{biscuits.id}"
 			
@@ -25,6 +21,13 @@ RSpec.describe 'Recipes Show Page', type: :feature do
 			expect(page).to have_content(flour.name)
 			expect(page).to have_content(eggs.name)
 			expect(page).to have_content(butter.name)
+		end
+
+		it 'I see the total cost of the ingredients for recipe' do
+			visit "/recipes/#{biscuits.id}"
+
+			total_cost = biscuits.ingredients.sum(:cost)
+			expect(page).to have_content("Total Cost: #{total_cost}")
 		end
 	end
 end
