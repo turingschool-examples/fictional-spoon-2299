@@ -1,14 +1,14 @@
-<%= "Name: #{@recipe.name}" %>
-<%= "Genre: #{@recipe.genre}" %>
-<%= "Complexity: #{@recipe.complexity}" %>
-<%= 'Ingredients:' %>
-<%= @recipe.ingredients.each do |ingredient| %>
-  <%=ingredient.name%>  
+<%= "Name: #{@recipe.name}" %><br>
+<%= "Genre: #{@recipe.genre}" %><br>
+<%= "Complexity: #{@recipe.complexity}" %><br>
+<%= 'Ingredients:' %><br>
+<% @recipe.ingredients.each do |ingredient| %>
+  <%=ingredient.name%><br>  
 <% end %>
-<%= "Total Cost: #{@recipe.cost}" %>
+<%= "Total Cost: #{@recipe.cost}" %><br>
 
 <%= form_with do |form|%>
-  <%= form.label :ingredientadd, 'Enter an Ingredient ID to add to this recipe:' %>
-  <%= form.number_field :ingredientadd %>
-  <%= form.submit "Submit" %>
+  <%= form.label :ingredientadd, 'Enter an Ingredient ID to add to this recipe:' %><br>
+  <%= form.number_field :ingredientadd %><br>
+  <%= form.submit "Submit" %><br>
 <% end %>
