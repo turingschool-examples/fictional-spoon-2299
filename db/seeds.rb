@@ -8,3 +8,12 @@
 Ingredient.destroy_all
 Recipe.destroy_all
 RecipeIngredient.destroy_all
+
+ingredient_1 = Ingredient.create!(name: "Lettuce", cost: 40)
+ingredient_2 = Ingredient.create!(name: "Cheese", cost: 40)
+ingredient_3 = Ingredient.create!(name: "Tomato", cost: 40)
+ingredient_4 = Ingredient.create!(name: "Onion", cost: 40)
+
+
+recipe_1 = Recipe.create!(name: "Salad", complexity: 9, genre: "dinner")
+recipe_2 = Recipe.create!(name: "Burger", complexity: 4, genre: "lunch")

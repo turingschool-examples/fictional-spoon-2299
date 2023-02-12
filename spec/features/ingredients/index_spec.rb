@@ -9,6 +9,10 @@ RSpec.describe 'Ingredient Show Page' do
     visit "/ingredients"
 
     expect(page).to have_content(ingredient_1.name)
+    expect(page).to have_content(ingredient_1.cost)
+
     expect(page).to have_content(ingredient_2.name)
+    expect(page).to have_content(ingredient_2.cost)
+
   end
 end
