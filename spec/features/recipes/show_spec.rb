@@ -33,6 +33,14 @@ RSpec.describe "Recipes Show Page" do
         expect(current_path).to eq("/recipes/#{@recipe.id}")
         expect(page).to have_content("Onion")
       end
+
+      it 'will not add ingredient the user submitted ID was not found and present an error message' do
+        fill_in :ingredient_id, with: "5"
+        click_on "Submit"
+
+        expect(current_path).to eq("/recipes/#{@recipe.id}")
+        expect(page).to have_content("Recipe Ingredient not added: Unknown Ingredient ID")
+      end
     end
   end
 end
