@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'recipe show page' do
@@ -20,9 +22,9 @@ describe 'recipe show page' do
     pepper = Ingredient.create!(name: 'pepper', cost: 10)
     tomato = Ingredient.create!(name: 'whole-peeled tomatoes', cost: 1)
     bean = Ingredient.create!(name: 'kidney beans', cost: 20)
-    ring1 = RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: pepper.id)
-    ring2 = RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: tomato.id)
-    ring3 = RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: bean.id)
+    RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: pepper.id)
+    RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: tomato.id)
+    RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: bean.id)
     visit "/recipes/#{recipe.id}"
     expect(page).to have_content(pepper.name)
     expect(page).to have_content(tomato.name)
@@ -41,9 +43,9 @@ describe 'recipe show page' do
     pepper = Ingredient.create!(name: 'pepper', cost: 10)
     tomato = Ingredient.create!(name: 'whole-peeled tomatoes', cost: 1)
     bean = Ingredient.create!(name: 'kidney beans', cost: 20)
-    ring1 = RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: pepper.id)
-    ring2 = RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: tomato.id)
-    ring3 = RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: bean.id)
+    RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: pepper.id)
+    RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: tomato.id)
+    RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: bean.id)
     visit "/recipes/#{recipe.id}"
     expect(page).to have_content('Total Cost: 31')
   end
@@ -69,7 +71,6 @@ describe 'recipe show page' do
     fill_in(:ingredientadd, with: pepper.id)
     click_on 'Submit'
     expect(current_path).to eq("/recipes/#{recipe.id}")
-    save_and_open_page
     expect(page).to have_content(pepper.name)
   end
 end
