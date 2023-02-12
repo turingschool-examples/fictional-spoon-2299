@@ -1,0 +1,7 @@
+<h1><%= "Recipe: #{@recipe.name}" %></h1>
+<%= "Complexity: #{@recipe.complexity}" %>
+<br>
+<%= "Genre: #{@recipe.genre}"%>
+<br>
+<%= "Ingredients: " %>
+<%= @ingredients.map {|ingredient| ingredient.name }.join(", ") %>
