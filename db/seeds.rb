@@ -9,10 +9,10 @@ Ingredient.destroy_all
 Recipe.destroy_all
 RecipeIngredient.destroy_all
 
-ingredient_1 = Ingredient.create!(name: "Lettuce", cost: 40)
-ingredient_2 = Ingredient.create!(name: "Cheese", cost: 40)
-ingredient_3 = Ingredient.create!(name: "Tomato", cost: 40)
-ingredient_4 = Ingredient.create!(name: "Onion", cost: 40)
+ingredient_1 = Ingredient.create!(name: "Lettuce", cost: 3)
+ingredient_2 = Ingredient.create!(name: "Cheese", cost: 10)
+ingredient_3 = Ingredient.create!(name: "Tomato", cost: 400)
+ingredient_4 = Ingredient.create!(name: "Onion", cost: 50)
 
 
 recipe_1 = Recipe.create!(name: "Salad", complexity: 9, genre: "dinner")
@@ -20,3 +20,6 @@ recipe_2 = Recipe.create!(name: "Burger", complexity: 4, genre: "lunch")
 
 recipe_ingredient_1 = RecipeIngredient.create!(recipe: recipe_1, ingredient: ingredient_1)
 recipe_ingredient_1 = RecipeIngredient.create!(recipe: recipe_1, ingredient: ingredient_2)
+
+recipe_ingredient_2 = RecipeIngredient.create!(recipe: recipe_2, ingredient: ingredient_3)
+recipe_ingredient_3 = RecipeIngredient.create!(recipe: recipe_2, ingredient: ingredient_4)
