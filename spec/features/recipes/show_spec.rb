@@ -11,7 +11,7 @@ RSpec.describe "Recipes Show Page" do
       visit "/recipes/#{good_pasta.id}"
 
       expect(page).to have_content(good_pasta.name)
-      expect(page).to have(good_pasta.complexity)
+      expect(page).to have_content(good_pasta.complexity)
       expect(page).to have_content(good_pasta.genre)
       expect(page).to have_content(rosemary.name)
       expect(page).to have_content(tomato.name)
