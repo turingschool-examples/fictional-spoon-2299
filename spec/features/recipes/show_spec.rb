@@ -17,6 +17,12 @@ RSpec.describe "Recipes Show Page" do
       expect(page).to have_content(tomato.name)
       expect(page).to have_content(pasta.name)
     end
+
+    it 'has the total cost of ingredients in the recipe' do 
+      visit "/recipes/#{good_pasta.id}"
+
+      expect(page).to have_content("Total Cost: 7")
+    end
   end
 end
   
