@@ -5,3 +5,5 @@
 <br>
 <%= "Ingredients: " %>
 <%= @ingredients.map {|ingredient| ingredient.name }.join(", ") %>
+<br>
+<%= "Total Cost: #{@ingredients.total_cost}" %>
