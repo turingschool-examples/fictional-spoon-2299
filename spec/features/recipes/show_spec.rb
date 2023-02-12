@@ -69,6 +69,7 @@ describe 'recipe show page' do
     fill_in(:ingredientadd, with: pepper.id)
     click_on 'Submit'
     expect(current_path).to eq("/recipes/#{recipe.id}")
+    save_and_open_page
     expect(page).to have_content(pepper.name)
   end
 end
