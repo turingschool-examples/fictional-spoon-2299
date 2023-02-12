@@ -10,3 +10,11 @@
   </ul>
 <% end %>
 <h4>Total Cost: <%=@recipe.ingredients_total_cost %></h4>
+
+<p>Add Ingredient</p>
+<%= form_with url: "/recipe_ingredients/#{@recipe.id}/new", method: :post, local: true do |form| %>
+  <%=form.label :ingredient_id, "Ingredient ID" %>
+  <%=form.number_field :ingredient_id %>
+  <%=form.hidden_field :recipe_id, value: @recipe.id %>
+  <%=form.button "Submit" %>
+<% end %>
