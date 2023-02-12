@@ -18,3 +18,4 @@ RSpec.describe 'Ingredients Index Page', type: :feature do
 		end
 	end
 end
+ 
