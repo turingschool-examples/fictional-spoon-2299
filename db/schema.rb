@@ -10,35 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_04_172317) do
-
+ActiveRecord::Schema.define(version: 20_220_704_172_317) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string "name"
-    t.integer "cost"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'ingredients', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'cost'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "recipe_ingredients", force: :cascade do |t|
-    t.bigint "recipe_id"
-    t.bigint "ingredient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
-    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+  create_table 'recipe_ingredients', force: :cascade do |t|
+    t.bigint 'recipe_id'
+    t.bigint 'ingredient_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['ingredient_id'], name: 'index_recipe_ingredients_on_ingredient_id'
+    t.index ['recipe_id'], name: 'index_recipe_ingredients_on_recipe_id'
   end
 
-  create_table "recipes", force: :cascade do |t|
-    t.string "name"
-    t.integer "complexity"
-    t.string "genre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'recipes', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'complexity'
+    t.string 'genre'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "recipe_ingredients", "ingredients"
-  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key 'recipe_ingredients', 'ingredients'
+  add_foreign_key 'recipe_ingredients', 'recipes'
 end
