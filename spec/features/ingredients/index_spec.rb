@@ -9,15 +9,9 @@ describe 'As a visitor' do
 
       visit '/ingredients'
 
-      expect(page).to have_content("ground beef")
-      expect(page).to have_content("tomato sauce")
-      expect(page).to have_content("spaghetti noodles")
-
-      expect(page).to have_content("5")
-      expect(page).to have_content("4")
-      expect(page).to have_content("3")
-
-
+      expect(page).to have_content("ground beef: 5")
+      expect(page).to have_content("tomato sauce: 4")
+      expect(page).to have_content("spaghetti noodles: 3")
     end
   end
 end
