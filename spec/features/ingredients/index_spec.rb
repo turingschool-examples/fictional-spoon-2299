@@ -20,7 +20,7 @@ RSpec.describe 'the ingredients index page', type: :feature do
     cheese = Ingredient.create!(name: 'cheese', cost: 15)
 
     visit '/ingredients'
-    save_and_open_page
+    
     expect(cheese.name).to appear_before(meat.name)
     expect(meat.name).to appear_before(pasta.name)
     expect(pasta.name).to appear_before(vege.name)
