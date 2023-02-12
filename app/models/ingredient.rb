@@ -3,4 +3,8 @@ class Ingredient < ApplicationRecord
   has_many :recipes, through: :recipe_ingredients
 
   validates :name, :cost, presence: true
+
+  def self.sort_alphabetically
+    order(:name)
+  end
 end

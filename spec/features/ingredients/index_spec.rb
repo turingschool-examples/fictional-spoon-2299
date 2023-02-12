@@ -6,6 +6,7 @@ describe "As a visitor" do
     @salt = Ingredient.create!(name: "salt", cost: 3)
     @turkey = Ingredient.create!(name: "turkey", cost: 15)
   end
+
   describe "When I visit '/ingredients'" do
     it "shows a list of all the ingredients include thier name and cost" do
       visit '/ingredients'
@@ -16,6 +17,13 @@ describe "As a visitor" do
       expect(page).to have_content(@salt.cost)
       expect(page).to have_content(@turkey.name)
       expect(page).to have_content(@turkey.cost)
+    end
+
+    it 'shows the ingredients in alphabetical order by name' do
+      visit '/ingredients'
+
+      expect(@salt.name).to appear_before(@tomato.name)
+      expect(@tomato.name).to appear_before(@turkey.name)
     end
   end
 end
