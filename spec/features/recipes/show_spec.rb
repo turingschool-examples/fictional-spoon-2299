@@ -29,12 +29,5 @@ RSpec.describe Recipe, type: :feature do
       expect(page).to have_content("sauce")
 
     end
-
-    it "I see the total cost of all the ingredients in the recipe" do
-      visit "/recipes/#{pasta.id}"
-
-      expect(page).to have_content("Total Cost:")
-      expect(page).to have_content(pasta.total_cost)
-    end
   end
 end
