@@ -33,7 +33,21 @@ describe "As a visitor" do
       visit "/recipes/#{@ratatouille.id}"
 
       total_cost = @tomato.cost + @salt.cost + @turkey.cost
-      expect(page).to have_content("Total Cost: #{@total_cost}")
+      expect(page).to have_content("Total Cost: #{total_cost}")
+    end
+
+    it "has a form to add an ingredient to the recipe" do
+      visit "/recipes/#{@ratatouille.id}"
+
+      expect(page).to have_content("Add an Ingredient")
+
+      fill_in 'ingredient', with: @bread.id
+      click_on 'Submit'
+
+      total_cost = @tomato.cost + @salt.cost + @turkey.cost + @bread.cost
+
+      expect(page).to have_content("bread")
+      expect(page).to have_content("Total Cost: #{total_cost}")
     end
   end
 end
