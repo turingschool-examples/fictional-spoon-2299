@@ -1,6 +1,9 @@
-<h1>Ingredients</h1>
-<u><h3>Ingredient: Cost</h3></u>
-
-<% @ingredients.each do |ingredient| %>
-  <p><%= "#{ingredient.name}: #{ingredient.cost}" %></p>
-<% end %>
+<div class="ingredients_container">
+  <h1><u>Ingredients</u></h1>
+  <div class="ingredients">
+    <h3>Name: Cost</h3>
+    <% @ingredients.each do |ingredient| %>
+      <%= "#{ingredient.name}: #{ingredient.cost}" %><br>
+    <% end %>
+  </div>
+</div>
