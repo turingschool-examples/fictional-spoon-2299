@@ -10,6 +10,7 @@
     pepper = Ingredient.create!(name: 'pepper', cost: 10)
     tomato = Ingredient.create!(name: 'whole-peeled tomatoes', cost: 1)
     bean = Ingredient.create!(name: 'kidney beans', cost: 20)
+    rice = Ingredient.create!(name: 'rice', cost: 20)
     RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: pepper.id)
     RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: tomato.id)
     RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: bean.id)
