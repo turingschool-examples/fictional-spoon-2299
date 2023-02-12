@@ -8,6 +8,7 @@ RSpec.describe Ingredient, type: :feature do
     it 'I see a list of all the ingredients including their name and cost' do
       visit '/ingredients'
 
+      save_and_open_page
       expect(page).to have_content("Ground Beef")
       expect(page).to have_content("Salt")
       expect(page).to have_content(2)
