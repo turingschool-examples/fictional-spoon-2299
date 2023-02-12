@@ -11,3 +11,4 @@
 @ingredient_1 = @recipe_1.ingredients.create!(name: "Ground Beef", cost: 4)
 @ingredient_2 = @recipe_1.ingredients.create!(name: "Salt", cost: 1)
 @ingredient_3 = @recipe_1.ingredients.create!(name: "Taco Seasoning", cost: 2)
+@ingredient_4 = Ingredient.create!(name: "Onion", cost: 2)
