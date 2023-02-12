@@ -43,6 +43,48 @@ RSpec.describe 'Recipe show spec' do
 
       end
 
+      it "has a form to add an ingredient to this recipe" do 
+
+        ingredient_1 = Ingredient.create!(name: "Onion", cost: 23)
+        ingredient_2 = Ingredient.create!(name: "Lettuce", cost: 12)
+        ingredient_3 = Ingredient.create!(name: "Chocolate", cost: 5)
+        
+        recipe_1 = Recipe.create!(name: "Salad", complexity: 2, genre: "Healthy")
+
+        RecipeIngredient.create!(recipe_id: recipe_1.id, ingredient_id: ingredient_1.id)
+        RecipeIngredient.create!(recipe_id: recipe_1.id, ingredient_id: ingredient_2.id)
+
+        visit "recipes/#{recipe_1.id}"
+
+        expect(page).to have_selector("form")
+        expect(page).to have_content("Add Ingredient to Recipe")
+
+      end
+
+      it "i fill in the form and click submit and am then redirected to the show page where it now lists the ingredient" do 
+
+        ingredient_1 = Ingredient.create!(name: "Onion", cost: 23)
+        ingredient_2 = Ingredient.create!(name: "Lettuce", cost: 12)
+        ingredient_3 = Ingredient.create!(name: "Chocolate", cost: 5)
+        
+        recipe_1 = Recipe.create!(name: "Salad", complexity: 2, genre: "Healthy")
+
+        RecipeIngredient.create!(recipe_id: recipe_1.id, ingredient_id: ingredient_1.id)
+        RecipeIngredient.create!(recipe_id: recipe_1.id, ingredient_id: ingredient_2.id)
+
+        visit "recipes/#{recipe_1.id}"
+        expect(page).to_not have_content("Chocolate")
+
+        fill_in "ingredient_id", with: ingredient_3.id
+        click_button("Add Ingredient")
+        expect(page).to have_content("Chocolate")
+        expect(page).to have_content("Onion")
+        expect(page).to have_content("Lettuce")
+
+
+
+      end
+
 
 
     end 
