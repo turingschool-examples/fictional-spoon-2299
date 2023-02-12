@@ -5,7 +5,6 @@ class RecipeIngredientsController < ApplicationController
   #   redirect_to "/recipes/:#{recipe.id}"
   # end
 
-
   # private
   # def recipe_ingredient_params
   #   params.permit(:id, :ingredient_id)
