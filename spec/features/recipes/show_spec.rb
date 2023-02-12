@@ -65,7 +65,7 @@ describe 'recipe show page' do
     visit "/recipes/#{recipe.id}"
     expect(page).to_not have_content(pepper.name)
     expect(page).to have_content('Enter an Ingredient ID to add to this recipe:')
-    expect(page).to have_form(:ingredientadd)
+    expect(page).to have_field(:ingredientadd)
     fill_in(:ingredientadd, with: pepper.id)
     click_on 'Submit'
     expect(current_path).to eq("/recipes/#{recipe.id}")
