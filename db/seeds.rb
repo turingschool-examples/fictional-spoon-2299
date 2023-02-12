@@ -17,3 +17,6 @@ ingredient_4 = Ingredient.create!(name: "Onion", cost: 40)
 
 recipe_1 = Recipe.create!(name: "Salad", complexity: 9, genre: "dinner")
 recipe_2 = Recipe.create!(name: "Burger", complexity: 4, genre: "lunch")
+
+recipe_ingredient_1 = RecipeIngredient.create!(recipe: recipe_1, ingredient: ingredient_1)
+recipe_ingredient_1 = RecipeIngredient.create!(recipe: recipe_1, ingredient: ingredient_2)

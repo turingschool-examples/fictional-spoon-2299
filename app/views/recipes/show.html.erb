@@ -2,3 +2,8 @@
   <p>Complexity: <%= @recipe.complexity %></p>
   <p>Genre: <%= @recipe.genre %></p>
   <br>
+
+<% @recipe.ingredients.each do |ingredient| %>
+  <%= ingredient.name %>
+  <br>
+<% end %>
