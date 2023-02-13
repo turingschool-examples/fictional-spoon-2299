@@ -12,17 +12,22 @@ RSpec.describe Ingredient, type: :model do
   end
 
   describe '.class methods/ scope' do 
-    before do 
-      Ingredient.create!(name: "Ground Beef", cost: 6)
-      Ingredient.create!(name: "Garlic", cost: 1)
-      Ingredient.create!(name: "Lasagna Noodles", cost: 1)
-      Ingredient.create!(name: "Ricotta", cost: 4)
-      Ingredient.create!(name: "Mushrooms", cost: 3)
+
+    let!(:ground_beef) { Ingredient.create!(name: "Ground Beef", cost: 6) }
+    let!(:garlic) { Ingredient.create!(name: "Garlic", cost: 1) }
+    let!(:lasagna_noods) { Ingredient.create!(name: "Lasagna Noodles", cost: 1) }
+    let!(:ricotta) { Ingredient.create!(name: "Ricotta", cost: 4) }
+    let!(:mushrooms) { Ingredient.create!(name: "Mushrooms", cost: 3) }
+    
+    it 'returns the total cost' do 
+
+      expect(Ingredient.total_cost).to eq(15)
     end
-    describe '.total_cost' do 
-      it 'returns the total cost' do 
-        expect(Ingredient.total_cost).to eq(15)
-      end
+   
+    it 'sorts ingredients alphabetically' do 
+  
+      expect(Ingredient.sort_alphabetically).to eq([garlic, ground_beef, lasagna_noods, mushrooms, ricotta])
     end
+    
   end
 end
