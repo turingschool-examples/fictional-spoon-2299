@@ -44,7 +44,7 @@ RSpec.describe 'recipe show page' do
       expect(page).to have_content(ingredient_2.name)
       expect(page).to have_content(ingredient_3.name)
       expect(page).to have_content(ingredient_4.name)
-      expect(page).to have_content(recipe_1.total_cost)
+      expect(page).to have_content("Total Cost: #{recipe_1.total_cost}")
 
     end
   end 
