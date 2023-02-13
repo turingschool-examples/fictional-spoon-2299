@@ -8,8 +8,8 @@ RSpec.describe '/recipes/:id', type: :feature do
   let!(:garlic) { Ingredient.create!(name: "garlic", cost: 1) }
 
   let!(:recipe_ingredient1) { RecipeIngredient.create!(recipe: pizza, ingredient: tomato) }
-  let!(:recipe_ingredient2) { RecipeIngredient.create!(recipe: pizza, ingredient: tomato) }
-  let!(:recipe_ingredient3) { RecipeIngredient.create!(recipe: pizza, ingredient: tomato) }
+  let!(:recipe_ingredient2) { RecipeIngredient.create!(recipe: pizza, ingredient: mozzarella) }
+  let!(:recipe_ingredient3) { RecipeIngredient.create!(recipe: pizza, ingredient: garlic) }
 
   it 'US2 - should display ' do
     visit "/recipes/#{pizza.id}"
