@@ -8,8 +8,9 @@ RSpec.describe "Recipe show page" do
     it "I see the recipe's name, complexity and genre" do
       visit "/recipes/#{tacos.id}"
   
-      expect(page).to have_content(pickles.name)
-      expect(page).to have_content(pickles.cost)
+      expect(page).to have_content(tacos.name)
+      expect(page).to have_content(tacos.complexity)
+      expect(page).to have_content(tacos.genre)
     end
   end
 end 
