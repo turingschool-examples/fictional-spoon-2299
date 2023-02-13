@@ -10,4 +10,12 @@ RSpec.describe Ingredient, type: :model do
     it {should have_many :recipe_ingredients}
     it {should have_many(:recipes).through(:recipe_ingredients)}
   end
+
+  describe 'Extention1 - ::alphabetical' do
+    let!(:tomato) { Ingredient.create!(name: "tomato", cost: 2) }
+    let!(:mozzarella) { Ingredient.create!(name: "mozzarella", cost: 5) }
+    let!(:garlic) { Ingredient.create!(name: "garlic", cost: 1) }  
+
+    expect(Ingredient.alphabetical).to eq([garlic, mozzarella, tomato])
+  end
 end

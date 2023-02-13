@@ -12,4 +12,11 @@ RSpec.describe '/ingredients', type: :feature do
     expect(page).to have_content("#{mozzarella.name}: #{mozzarella.cost}")
     expect(page).to have_content("#{garlic.name}: #{garlic.cost}")
   end
+
+  it 'Extention1 - should show list of ingredients sorted alphabetically by name' do
+    visit '/ingredients'
+
+    expect(garlic.name).to appear_before(mozzarella.name)
+    expect(mozzarella.name).to appear_before(tomato.name)
+  end
 end
