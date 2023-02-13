@@ -18,19 +18,25 @@ RSpec.describe Recipe, type: :feature do
 
 
   end
-    it 'shows the recipes name, complexity, genre, and its ingredients' do
-      visit "/recipes/#{lasagna.id}"
-     
-      expect(page).to have_content("#{lasagna.name}")
-      expect(page).to have_content("#{lasagna.complexity}")
-      expect(page).to have_content("#{lasagna.genre}")
+  it 'shows the recipes name, complexity, genre, and its ingredients' do
+    visit "/recipes/#{lasagna.id}"
+    
+    expect(page).to have_content("#{lasagna.name}")
+    expect(page).to have_content("#{lasagna.complexity}")
+    expect(page).to have_content("#{lasagna.genre}")
 
-      expect(page).to have_content("Ingredients:")
-      expect(page).to have_content("#{ground_beef.name}")
-      expect(page).to have_content("#{garlic.name}")
-      expect(page).to have_content("#{lasagna_noods.name}")
-      expect(page).to have_content("#{ricotta.name}")
-      expect(page).to have_content("#{mushrooms.name}")
-    end
+    expect(page).to have_content("Ingredients:")
+    expect(page).to have_content("#{ground_beef.name}")
+    expect(page).to have_content("#{garlic.name}")
+    expect(page).to have_content("#{lasagna_noods.name}")
+    expect(page).to have_content("#{ricotta.name}")
+    expect(page).to have_content("#{mushrooms.name}")
+  end
   
+  it 'shows the total cost of ingredients' do
+    visit "/recipes/#{lasagna.id}"
+    
+    expect(page).to have_content("Total Cost:")
+    expect(page).to have_content("#{lasagna.ingredients.total_cost}")
+  end
 end
