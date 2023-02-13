@@ -5,3 +5,5 @@
 <% @recipe.ingredients.each do |ingredient|%>
 <p><%= ingredient.name %></p>
 <%end%>
+<br>
+<p>Total Cost: <%= @recipe.total_cost%></p>
