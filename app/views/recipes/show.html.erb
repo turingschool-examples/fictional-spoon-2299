@@ -1,0 +1,9 @@
+<h3><%= @recipe.name%></h3>
+<h4>Complexity:</h4> <%= @recipe.complexity%>
+<h4>Genre:</h4> <%= @recipe.genre%>
+<h4>Ingredients:</h4>
+<br>
+<%@recipe.ingredients.each do |ingredient|%>
+<%=ingredient.name%>
+<br>
+<%end%>
