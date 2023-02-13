@@ -1,7 +1,7 @@
 class IngredientsController < ApplicationController
   def index
-    @ingredient = Ingredient.find(params[:id])
-    binding.pry
+    # binding.pry
+    @ingredients = Ingredient.all
   end
 
   private
