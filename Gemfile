@@ -19,6 +19,7 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov'
+  gem 'orderly'
 end
 
 group :development do
