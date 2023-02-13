@@ -11,6 +11,5 @@ RSpec.describe '/ingredients', type: :feature do
     expect(page).to have_content("#{tomato.name}: #{tomato.cost}")
     expect(page).to have_content("#{mozzarella.name}: #{mozzarella.cost}")
     expect(page).to have_content("#{garlic.name}: #{garlic.cost}")
-    save_and_open_page
   end
 end

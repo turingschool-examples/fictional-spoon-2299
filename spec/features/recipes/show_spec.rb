@@ -11,7 +11,7 @@ RSpec.describe '/recipes/:id', type: :feature do
   let!(:recipe_ingredient2) { RecipeIngredient.create!(recipe: pizza, ingredient: mozzarella) }
   let!(:recipe_ingredient3) { RecipeIngredient.create!(recipe: pizza, ingredient: garlic) }
 
-  it 'US2 - should display ' do
+  it 'US2 - should display recipe name, attributes, & all ingredients' do
     visit "/recipes/#{pizza.id}"
 
     expect(page).to have_content("Recipe for #{pizza.name}")
@@ -21,5 +21,11 @@ RSpec.describe '/recipes/:id', type: :feature do
     expect(page).to have_content("-#{tomato.name}")
     expect(page).to have_content("-#{mozzarella.name}")
     expect(page).to have_content("-#{garlic.name}")
+  end
+
+  it 'US3 - should display total cost of all ingredients' do
+    visit "/recipes/#{pizza.id}"
+
+    expect(page).to have_content("Total Cost: #{pizza.total_cost}")
   end
 end
