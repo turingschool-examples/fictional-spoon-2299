@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'recipe show page' do
   describe "when I visit /recipes/:id" do
     it 'Shows a recipies name, complexity, genre, and ingredients' do
-      recipe_1 = Recipe.create!(name: ' Strip Steak', complexity: 1, genre: 'American?')
+      recipe_1 = Recipe.create!(name: 'Strip Steak', complexity: 1, genre: 'American?')
       ingredient_1 = Ingredient.create!(name: 'salt', cost: 12)
       ingredient_2 = Ingredient.create!(name: 'pepper', cost: 14)
       ingredient_3 = Ingredient.create!(name: 'garlic', cost: 13)
@@ -18,10 +18,10 @@ RSpec.describe 'recipe show page' do
       expect(page).to have_content(recipe_1.name)
       expect(page).to have_content(recipe_1.complexity)
       expect(page).to have_content(recipe_1.genre)
-      expect(page).to have_content(ingredient_1)
-      expect(page).to have_content(ingredient_2)
-      expect(page).to have_content(ingredient_3)
-      expect(page).to have_content(ingredient_4)
+      expect(page).to have_content(ingredient_1.name)
+      expect(page).to have_content(ingredient_2.name)
+      expect(page).to have_content(ingredient_3.name)
+      expect(page).to have_content(ingredient_4.name)
     end 
   end 
 end 
