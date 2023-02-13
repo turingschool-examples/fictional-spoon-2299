@@ -1,4 +1,4 @@
-<%@ingredients.each do |ingredient|%>
+<%@ingredients.sort_alphabetically.each do |ingredient|%>
 <%=ingredient.name%>: <%=ingredient.cost%>
 <br><br>
 <%end%>
