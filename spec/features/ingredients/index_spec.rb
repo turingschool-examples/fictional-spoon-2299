@@ -13,8 +13,7 @@ RSpec.describe Ingredient, type: :feature do
 
   it 'displays ingredients in alphabetical order' do 
     visit '/ingredients'
-    save_and_open_page
-    
+
     expect("Garlic").to appear_before("Ground Beef")
   end
 end
