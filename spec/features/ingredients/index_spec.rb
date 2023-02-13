@@ -8,7 +8,7 @@ RSpec.describe "Ingredient index page" do
     end
     it "I see a list of all the ingredients including their name and cost" do
       visit '/ingredients'
-
+  
       expect(page).to have_content(@ingredient.name)
       expect(page).to have_content(@ingredient.cost)
     end
