@@ -8,10 +8,20 @@ RSpec.describe 'recipe show page' do
       ingredient_2 = Ingredient.create!(name: 'pepper', cost: 14)
       ingredient_3 = Ingredient.create!(name: 'garlic', cost: 13)
       ingredient_4 = Ingredient.create!(name: 'New York Strip', cost: 25)
+      recipe_ingredient_1 = RecipeIngredient.create!(recipe: recipe_1, ingredient: ingredient_1)
+      recipe_ingredient_2 = RecipeIngredient.create!(recipe: recipe_1, ingredient: ingredient_2)
+      recipe_ingredient_3 = RecipeIngredient.create!(recipe: recipe_1, ingredient: ingredient_3)
+      recipe_ingredient_4 = RecipeIngredient.create!(recipe: recipe_1, ingredient: ingredient_4)
 
       visit "/recipes/#{recipe_1.id}"
 
-      expect(page).to have_content()
+      expect(page).to have_content(recipe_1.name)
+      expect(page).to have_content(recipe_1.complexity)
+      expect(page).to have_content(recipe_1.genre)
+      expect(page).to have_content(ingredient_1)
+      expect(page).to have_content(ingredient_2)
+      expect(page).to have_content(ingredient_3)
+      expect(page).to have_content(ingredient_4)
     end 
   end 
 end 
