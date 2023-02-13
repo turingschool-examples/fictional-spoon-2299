@@ -15,7 +15,9 @@ RSpec.describe Ingredient, type: :model do
     let!(:tomato) { Ingredient.create!(name: "tomato", cost: 2) }
     let!(:mozzarella) { Ingredient.create!(name: "mozzarella", cost: 5) }
     let!(:garlic) { Ingredient.create!(name: "garlic", cost: 1) }  
-
-    expect(Ingredient.alphabetical).to eq([garlic, mozzarella, tomato])
+    
+    it 'should sort ingredients alphabetically' do
+      expect(Ingredient.alphabetical).to eq([garlic, mozzarella, tomato])
+    end
   end
 end
