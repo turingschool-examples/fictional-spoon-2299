@@ -2,7 +2,8 @@
 <p>Complexity: <%= @recipe.complexity %></p>
 <p>Genre: <%= @recipe.genre %></p>
 <br>
-<h4>Must-Have Ingredients:</h4>
+<h3>Must-Have Ingredients:</h3>
 <% @recipe.ingredients.each do |ingredient| %>
   <p>-<%= ingredient.name %></p>
 <% end %>
+<h4>Total Cost: <%= @recipe.total_cost %></h4>

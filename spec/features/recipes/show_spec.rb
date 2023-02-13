@@ -27,5 +27,6 @@ RSpec.describe '/recipes/:id', type: :feature do
     visit "/recipes/#{pizza.id}"
 
     expect(page).to have_content("Total Cost: #{pizza.total_cost}")
+    save_and_open_page  
   end
 end
