@@ -10,12 +10,20 @@ RSpec.describe 'recipes/show', type: :feature do
     it 'returns the recipe name, complexity, and genre and a list of ingredient names' do
 
       visit "/recipes/#{pasta.id}"
-
+      
       expect(page).to have_content("#{pasta.name}")
       expect(page).to have_content("#{pasta.complexity}")
       expect(page).to have_content("#{pasta.genre}")
       expect(page).to have_content("#{noodles.name}")
       expect(page).to have_content("#{tomato_sauce.name}")
+    end
+  end
+
+  describe 'User Story 3' do
+    it 'displays the total cost of all ingredients in the recipe' do
+      visit "/recipes/#{pasta.id}"
+
+      expect(page).to have_content("Total Cost: #{pasta.total_cost}")
     end
   end
 end
