@@ -1,0 +1,9 @@
+<section>
+  <h2>Ingredients:</h2>
+  <ul>
+    <% @all_ingredients.each do |ingredient| %>
+      <li>Name: <%= ingredient.name %></li>
+      <li>Cost: <%= ingredient.cost %></li><br>
+    <% end %>
+  </ul>
+</section>

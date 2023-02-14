@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Ingredients, type: :feature do
+RSpec.describe IngredientsController, type: :feature do
   let!(:cilantro) { Ingredient.create!(name: "Cilantro", cost: 1) }
   let!(:onion) { Ingredient.create!(name: "Onion", cost: 2) }
   let!(:olives) { Ingredient.create!(name: "Olives", cost: 3) }
@@ -13,13 +13,15 @@ RSpec.describe Ingredients, type: :feature do
       it "I see a list of all the ingredients including their name and cost" do
         visit '/ingredients'
 
+        save_and_open_page
+
         expect(page).to have_content("Ingredients:")
-        expect(page).to have_content(cilantro.name)
-        expect(page).to have_content(cilantro.cost)
-        expect(page).to have_content(onions.name)
-        expect(page).to have_content(onions.cost)
-        expect(page).to have_content(olives.name)
-        expect(page).to have_content(olives.cost)
+        expect(page).to have_content("Name: #{cilantro.name}")
+        expect(page).to have_content("Cost: #{cilantro.cost}")
+        expect(page).to have_content("Name: #{onion.name}")
+        expect(page).to have_content("Cost: #{onion.cost}")
+        expect(page).to have_content("Name: #{olives.name}")
+        expect(page).to have_content("Cost: #{olives.cost}")
       end
     end
   end
