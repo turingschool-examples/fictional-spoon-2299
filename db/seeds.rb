@@ -11,4 +11,6 @@
 @ing_1 = Ingredient.create!(name: "Noodles", cost: 3)
 @ing_2 = Ingredient.create!(name: "Salt", cost: 1)
 @ing_3 = Ingredient.create!(name: "Sauce", cost: 5)
-@pizza = RecipeIngredient.create!(recipe_id: @recipe_2.id, ingredient_id: @ing_3.id)
+@ing_4 = Ingredient.create!(name: "Mozzarella Cheese", cost: 10)
+RecipeIngredient.create!(recipe_id: @recipe_2.id, ingredient_id: @ing_3.id)
+RecipeIngredient.create!(recipe_id: @recipe_2.id, ingredient_id: @ing_4.id)
