@@ -20,6 +20,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'net-http'
+  gem 'orderly'
 end
 
 group :development do
