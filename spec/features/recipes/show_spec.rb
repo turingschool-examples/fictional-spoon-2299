@@ -8,6 +8,7 @@ RSpec.describe "Ingredients Index Page", type: :feature do
     @ingredient_1 = @recipe_1.ingredients.create(name: "Tuna", cost: 5)
     @ingredient_2 = @recipe_1.ingredients.create(name: "Bell Pepper", cost: 2)
     @ingredient_3 = @recipe_1.ingredients.create(name: "Poppyseed Dressing", cost: 6)
+    @ingredient_4 = Ingredient.create(name: "Celery", cost: 2)
   end
   
   describe "User Story 2, as a visitor visiting '/recipes/:id'" do
@@ -36,8 +37,7 @@ RSpec.describe "Ingredients Index Page", type: :feature do
       it "has a form to add an ingredient" do
         @ingredient_4 = @recipe_1.ingredients.create(name: "Celery", cost: 2)
         visit "/recipes/#{@recipe_1.id}"
-        fill_in "Ingredient Name", with: @ingredient_4.name
-        fill_in "Ingredient Cost", with: @ingredient_4.cost
+        fill_in "Add Ingredient by ID", with: @ingredient_4.id
         click_button "Add Ingredient"
 
         expect(page).to have_current_path("/recipes/#{@recipe_1.id}")
