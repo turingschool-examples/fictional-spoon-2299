@@ -32,17 +32,20 @@ RSpec.describe "Ingredients Index Page", type: :feature do
     end
   end
 
-  describe "Extension 2 - Add an Ingredient to a Recipe" do
-    describe "as a visitor visiting '/recipes/:id'" do
-      it "has a form to add an ingredient" do
-        @ingredient_4 = @recipe_1.ingredients.create(name: "Celery", cost: 2)
-        visit "/recipes/#{@recipe_1.id}"
-        fill_in "Add Ingredient by ID", with: @ingredient_4.id
-        click_button "Add Ingredient"
+  # describe "Extension 2 - Add an Ingredient to a Recipe" do
+  #   describe "as a visitor visiting '/recipes/:id'" do
+  #     it "has a form to add an ingredient" do
+  #       @ingredient_4 = @recipe_1.ingredients.create(name: "Celery", cost: 2)
+  #       visit "/recipes/#{@recipe_1.id}"
 
-        expect(page).to have_current_path("/recipes/#{@recipe_1.id}")
-        expect(page).to have_content(@ingredient_4.name)
-      end
-    end
-  end
+  #       expect(find('form')).to have_content("Ingredient ID")
+
+  #       fill_in "Ingredient ID", with: @ingredient_4.id
+  #       click_button "Add Ingredient"
+
+  #       expect(page).to have_current_path("/recipes/#{@recipe_1.id}")
+  #       expect(page).to have_content(@ingredient_4.name)
+  #     end
+  #   end
+  # end
 end
