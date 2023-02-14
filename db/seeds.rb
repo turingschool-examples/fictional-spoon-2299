@@ -6,5 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-chicken = Ingredient.create(name: "chicken", cost: 8)
-mushrooms = Ingredient.create(name: "mushrooms", cost: 3)
+		pot_pie = Recipe.create!(name: 'Pot Pie', complexity: 6, genre: "homestyle")
+    
+    chicken = pot_pie.ingredients.create!(name: "chicken", cost: 8)
+    mushrooms = pot_pie.ingredients.create!(name: "mushrooms", cost: 3)
+    stock = pot_pie.ingredients.create!(name: "chicken stock", cost: 3)
+    crust = pot_pie.ingredients.create!(name: "pie crust", cost: 4)

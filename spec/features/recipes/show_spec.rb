@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'the recipe show page' do
   it 'shows a recipe and all of its attributes' do
-		pot_pie = Recipe.create!(name: 'Pot Pie', complexity: "medium", genre: "homestyle")
+		pot_pie = Recipe.create!(name: 'Pot Pie', complexity: 6, genre: "homestyle")
     
     chicken = pot_pie.ingredients.create!(name: "chicken", cost: 8)
     mushrooms = pot_pie.ingredients.create!(name: "mushrooms", cost: 3)
