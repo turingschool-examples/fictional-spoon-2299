@@ -32,4 +32,20 @@ RSpec.describe 'the recipe show page' do
 
     expect(page).to have_content(pot_pie.total_cost)
 	end
+
+	it 'has a form to add ingredients to the recipe' do
+		pot_pie = Recipe.create!(name: 'Pot Pie', complexity: 6, genre: "homestyle")
+    
+    chicken = pot_pie.ingredients.create!(name: "chicken", cost: 8)
+    mushrooms = pot_pie.ingredients.create!(name: "mushrooms", cost: 3)
+    stock = pot_pie.ingredients.create!(name: "chicken stock", cost: 3)
+		crust = Ingredient.create!(name: "pie crust", cost: 4)
+
+		visit "/recipes/#{pot_pie.id}"
+
+		fill_in "ingredient", with: "#{crust.id}"
+		click_button 'Submit'
+		expect(current_path).to eq("/recipes/#{pot_pie.id}")
+		expect(page).to have_content(crust.name)
+	end
 end

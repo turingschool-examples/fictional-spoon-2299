@@ -11,4 +11,17 @@
 <h3> Total cost </h3>
 <p><%= number_to_currency(@recipe.total_cost) %></p>
 
+<h4> Add an ingredient </h4>
+<%= form_tag "/recipes/#{@recipe.id}", :method => :patch do %>
+<%= label_tag :ingredient, "Please enter ingredient ID" %>
+<%= text_field_tag :ingredient %>
+<%= submit_tag "Submit" %>
+<% if flash[:error] %>
+  
+
+    <%= flash[:error] %>
+  
+<% end %>
+<% end %>
+
 
