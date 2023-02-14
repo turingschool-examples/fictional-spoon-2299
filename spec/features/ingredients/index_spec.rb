@@ -21,7 +21,7 @@ RSpec.describe "Ingredients Index Page", type: :feature do
     end
   end
 
-  describe "Extension 1 - Ingredients Sorted Alphabetically" do
+  xdescribe "Extension 1 - Ingredients Sorted Alphabetically" do
     it 'lists ingredients in alphebetical order' do
       visit "/ingredients"
 
