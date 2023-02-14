@@ -1,0 +1,4 @@
+<h2> Ingredients </h2>
+<% @ingredients.each do |ingredient| %>
+<%= ingredient.name %> <%= "Cost: #{ingredient.cost}" %>
+<% end %>
