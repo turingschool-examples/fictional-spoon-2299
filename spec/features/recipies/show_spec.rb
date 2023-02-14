@@ -39,4 +39,21 @@ RSpec.describe "The recipie show" do
 
     end
   end
+
+  describe "Extenstion 2" do
+    it "shows the visitor a form to add an ingredient to the receipe" do
+      recipe_1 = Recipe.create!(name: "Bean Soup", complexity: "Hard", genre: "Down Bad")
+      ingredient_1 = Ingredient.create!(name: "Beans", cost: 420)
+      ingredient_2 = Ingredient.create!(name: "Water", cost: 80)
+
+      recipe_ingredient_1 = RecipeIngredient.create!(recipe_id: recipe_1.id, ingredient_id: ingredient_1.id)
+
+      visit "/recipes/#{recipe_1.id}"
+
+      fill_in 'Search', with: 1
+      click_on("Submit")
+  
+      expect(page).to have_content("Add Ingredients to This Recipe:")
+    end
+  end
 end

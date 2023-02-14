@@ -1,5 +1,5 @@
 <h3> <%= @recipe.name %> </h3>
-<p>>Complexity: <%= @recipe.complexity %> </p>
+<p>Complexity: <%= @recipe.complexity %> </p>
 <p>Genre: <%= @recipe.genre %> </p>
 
 <h3> Ingredients </h3>
@@ -8,3 +8,10 @@
 <% end %>
 
 <h3> Total Cost: <%= @total_cost %></h3>
+
+<h3> Add Ingredients to This Recipe: </h3>
+<%= form_with url: "/recipes/#{@recipe.id}", method: :get, local: true do |f| %>
+  <%= f.label :search %>
+  <%= f.number_field :search, value: params[:search] %>
+  <%= f.submit "Submit" %>
+<% end %>
