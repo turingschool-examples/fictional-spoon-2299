@@ -4,7 +4,10 @@
   <li>genre: <%= @recipe.genre %></li>
 <ul>
 
-<h2> Ingredients: <h2>
+<h2>Ingredients:<h2>
 <% @ingredients.each do |ingredient| %>
 <%= ingredient.name %><br>
 <% end %>
+
+<h2>Total Cost:</h2>
+<%= @recipe.cost %>
