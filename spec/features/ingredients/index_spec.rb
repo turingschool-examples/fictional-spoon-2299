@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe "Ingredients Index Page", type: :feature do
 
   before(:each) do
-    @ingredient_1 = Ingredient.create(name: "Tuna", cost: 5)
-    @ingredient_2 = Ingredient.create(name: "Bell Pepper", cost: 2)
-    @ingredient_3 = Ingredient.create(name: "Poppyseed Dressing", cost: 6)
+    @ingredient_1 = Ingredient.create!(name: "Tuna", cost: 5)
+    @ingredient_2 = Ingredient.create!(name: "Bell Pepper", cost: 2)
+    @ingredient_3 = Ingredient.create!(name: "Poppyseed Dressing", cost: 6)
   end
   
   describe "User Story 1, as a visitor visiting '/ingredients'" do
@@ -18,7 +18,6 @@ RSpec.describe "Ingredients Index Page", type: :feature do
       expect(page).to have_content("2")
       expect(page).to have_content("Poppyseed Dressing")
       expect(page).to have_content("6")
-      save_and_open_page
     end
   end
 end
