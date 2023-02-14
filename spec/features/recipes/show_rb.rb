@@ -24,7 +24,7 @@ RSpec.describe '#index' do
       expect(page).to have_content "Complexity: #{@omelette.complexity}"
       expect(page).to have_content "Genre: #{@omelette.genre}"
 
-      expect(page).to have_content "Ingredients:\n#{@salt.name}, #{@egg.name}, #{@cheese.name}, #{@mushroom.name}, #{@spinach.name}"
+      expect(page).to have_content "Ingredients:\n#{@cheese.name}, #{@egg.name}, #{@mushroom.name}, #{@salt.name}, #{@spinach.name}"
     end
 
     it 'I should see the total cost of the recipe' do

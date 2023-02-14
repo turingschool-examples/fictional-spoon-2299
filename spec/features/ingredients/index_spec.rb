@@ -12,10 +12,18 @@ end
     it 'I should see a list of all ingredients and their cost' do
       visit '/ingredients'
 
-      expect(page).to have_content "Ingredients\nSalt Cost: 2"
+      expect(page).to have_content "Salt Cost: 2"
       expect(page).to have_content "Egg Cost: 400"
       expect(page).to have_content "Cheese Cost: 5"
       expect(page).to have_content "Curry Powder Cost: 1"
+    end
+    
+    it 'has ingredients sorted alphabetically' do
+      visit '/ingredients'
+
+      expect(@cheese.name).to appear_before @curry_pow.name
+      expect(@curry_pow.name). to appear_before @egg.name
+      expect(@egg.name).to appear_before @salt.name
     end
   end
 end
