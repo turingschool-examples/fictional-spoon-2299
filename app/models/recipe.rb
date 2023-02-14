@@ -5,4 +5,10 @@ class Recipe < ApplicationRecord
   def add_ingredient(ingredient)
     self.ingredients << ingredient
   end
+
+  def cost
+    self.ingredients.sum do |ingredient|
+      ingredient.cost
+    end
+  end
 end

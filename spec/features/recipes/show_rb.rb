@@ -26,5 +26,11 @@ RSpec.describe '#index' do
 
       expect(page).to have_content "Ingredients:\n#{@salt.name}, #{@egg.name}, #{@cheese.name}, #{@mushroom.name}, #{@spinach.name}"
     end
+
+    it 'I should see the total cost of the recipe' do
+      visit "/recipes/#{@omelette.id}"
+      
+      expect(page).to have_content "Total Recipe Cost: #{@omelette.cost}"
+    end
   end
 end
