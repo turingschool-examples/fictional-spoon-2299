@@ -47,5 +47,21 @@ RSpec.describe 'the recipe show page' do
 		click_button 'Submit'
 		expect(current_path).to eq("/recipes/#{pot_pie.id}")
 		expect(page).to have_content(crust.name)
+
+		fill_in "ingredient", with: "7"
+		click_button 'Submit'
+		expect(page).to have_content('Ingredient not found')
+	end
+
+	it 'will flash if user adds an ingredient that does not exist' do
+		pot_pie = Recipe.create!(name: 'Pot Pie', complexity: 6, genre: "homestyle")
+    
+    chicken = pot_pie.ingredients.create!(name: "chicken", cost: 8)   
+
+		visit "/recipes/#{pot_pie.id}"
+
+		fill_in "ingredient", with: "7"
+		click_button 'Submit'
+		expect(page).to have_content('Ingredient not found')
 	end
 end
