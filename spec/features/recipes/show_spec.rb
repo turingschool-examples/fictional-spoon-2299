@@ -12,6 +12,7 @@ RSpec.describe 'Recipe Show' do
       @recipe_ingredients1 = RecipeIngredient.create!(recipe_id: @recipe1.id, ingredient_id: @ingredient1.id)
       @recipe_ingredients2 = RecipeIngredient.create!(recipe_id: @recipe1.id, ingredient_id: @ingredient2.id)
     end
+
     it 'shows that specifc name, complexity, and genre of the recipe' do
       visit "/recipes/#{@recipe1.id}"
 
@@ -20,6 +21,7 @@ RSpec.describe 'Recipe Show' do
 
     it 'shows a list of the names of the ingredients in the recipe' do
       visit "/recipes/#{@recipe1.id}"
+      save_and_open_page
 
       expect(page).to have_content("#{@ingredient1.name}")
       expect(page).to have_content("#{@ingredient2.name}")
