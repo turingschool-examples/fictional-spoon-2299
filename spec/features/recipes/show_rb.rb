@@ -7,7 +7,8 @@ RSpec.describe '#index' do
     @cheese = Ingredient.create!(name: 'Cheese', cost: 5)
     @mushroom = Ingredient.create!(name: 'Mushroom', cost: 2)
     @spinach = Ingredient.create!(name: 'Spinach', cost: 3)
-
+    @curry_pow = Ingredient.create!(name: 'Curry Powder', cost: 1)
+ 
     @omelette = Recipe.create!(name: 'Omelette', complexity: 2, genre: "Breakfast")
     @omelette.add_ingredient(@cheese)
     @omelette.add_ingredient(@egg)
@@ -31,6 +32,17 @@ RSpec.describe '#index' do
       visit "/recipes/#{@omelette.id}"
       
       expect(page).to have_content "Total Recipe Cost: #{@omelette.cost}"
+    end
+
+    it 'has a form to add an ingredient to the recipe' do 
+      visit "/recipes/#{@omelette.id}"
+
+      fill_in "ingredient_id", with: "#{@curry_pow.id}"
+      click_button "Add Ingredient"
+
+      expect(current_path).to eq "/recipes/#{@omelette.id}"
+
+      expect(page).to have_content "#{@curry_pow.name}"
     end
   end
 end

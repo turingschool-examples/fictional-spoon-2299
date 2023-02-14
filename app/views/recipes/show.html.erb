@@ -7,4 +7,11 @@
   <%= "#{ingredient.name}," %>
 <% end %>
 
-<h3> <%= "Total Recipe Cost: #{@cost}" %> </h3
+<h3> <%= "Total Recipe Cost: #{@cost}" %> </h3>
+
+<%= form_with url: "/recipes/#{@recipe.id}", method: :patch, local: true do |form| %>
+<%= form.label :ingredient_id, "Ingredient ID:" %>
+<%= form.text_field :ingredient_id %>
+<%= form.submit "Add Ingredient" %>
+<% end %>
+
