@@ -18,6 +18,7 @@ RSpec.describe "Ingredients Index Page", type: :feature do
       expect(page).to have_content("2")
       expect(page).to have_content("Poppyseed Dressing")
       expect(page).to have_content("6")
+      save_and_open_page
     end
   end
 end
