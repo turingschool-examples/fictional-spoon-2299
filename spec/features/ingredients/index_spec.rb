@@ -7,7 +7,7 @@ RSpec.describe '/ingredients', type: :feature do
 
   it 'shows a list of all ingredients including their name and cost' do
     visit '/ingredients'
-    save_and_open_page
+    
     expect(page).to have_content("#{ground_beef.name}: #{ground_beef.cost}")
     expect(page).to have_content("#{salt.name}: #{salt.cost}")
   end
