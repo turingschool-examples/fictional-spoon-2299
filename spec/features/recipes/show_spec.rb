@@ -19,4 +19,17 @@ RSpec.describe 'the recipe show page' do
     expect(page).to have_content(stock.name)
     expect(page).to have_content(crust.name)
 	end
+
+	it 'displays the recipes cost' do
+		pot_pie = Recipe.create!(name: 'Pot Pie', complexity: 6, genre: "homestyle")
+    
+    chicken = pot_pie.ingredients.create!(name: "chicken", cost: 8)
+    mushrooms = pot_pie.ingredients.create!(name: "mushrooms", cost: 3)
+    stock = pot_pie.ingredients.create!(name: "chicken stock", cost: 3)
+    crust = pot_pie.ingredients.create!(name: "pie crust", cost: 4)
+
+    visit "/recipes/#{pot_pie.id}"
+
+    expect(page).to have_content(pot_pie.total_cost)
+	end
 end

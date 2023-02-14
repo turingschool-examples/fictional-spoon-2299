@@ -8,3 +8,7 @@
 	<p><%=ingredient.name %></p>
 <% end %>
 
+<h3> Total cost </h3>
+<p><%= number_to_currency(@recipe.total_cost) %></p>
+
+
