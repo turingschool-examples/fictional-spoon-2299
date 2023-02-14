@@ -5,7 +5,7 @@ RSpec.describe '/ingredients', type: :feature do
   let!(:burger_patty) { Recipe.create!(name: 'Burger Patty', complexity: 2, genre: 'American') }
   let!(:ground_beef) { Ingredient.create!(name: 'Ground Beef', cost: 8) }
   let!(:salt) { Ingredient.create!(name: 'Salt', cost: 2) }
-  let!(:pepper) { Ingredient.create!(name: 'Pepper', cost: 3) }
+  let!(:pepper) { Ingredient.create!(name: 'Black Pepper', cost: 3) }
 
   before do
     RecipeIngredient.create!(recipe: burger_patty, ingredient: ground_beef)
