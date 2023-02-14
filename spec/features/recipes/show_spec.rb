@@ -21,10 +21,17 @@ RSpec.describe 'Recipe Show' do
 
     it 'shows a list of the names of the ingredients in the recipe' do
       visit "/recipes/#{@recipe1.id}"
-      save_and_open_page
 
       expect(page).to have_content("#{@ingredient1.name}")
       expect(page).to have_content("#{@ingredient2.name}")
+      expect(page).to_not have_content("#{@ingredient3.name}")
+    end
+
+    it 'shows the total cost of all of the ingredients in the recipe (Total Cost: #)' do
+      visit "/recipes/#{@recipe1.id}"
+      save_and_open_page
+
+      expect(page).to have_content("Total Cost: #{@ingredient1.cost + @ingredient2.cost}")
     end
   end
 end
