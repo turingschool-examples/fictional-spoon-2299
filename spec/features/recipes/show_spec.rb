@@ -22,6 +22,8 @@ require 'rails_helper'
         ingredient_1 = recipe_1.ingredients.create!(name: "Salt", cost: 1)
         ingredient_2 = Ingredient.create!(name: "Pepper", cost: 2)
 
+        visit "/recipes/#{recipe_1.id}"
+        
         expect(page).to have_content(recipe_1.cost)
       end
     end
