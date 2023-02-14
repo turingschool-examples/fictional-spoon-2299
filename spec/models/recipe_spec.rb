@@ -11,4 +11,18 @@ RSpec.describe Recipe, type: :model do
     it {should have_many :recipe_ingredients}
     it {should have_many(:ingredients).through(:recipe_ingredients)}
   end
+
+  describe '#instance_methods' do
+    let!(:burger_patty) { Recipe.create!(name: 'Burger Patty', complexity: 2, genre: 'American') }
+
+    before do
+      burger_patty.ingredients.create!(name: 'Ground Beef', cost: 8)
+      burger_patty.ingredients.create!(name: 'Salt', cost: 2)
+    end
+
+    it 'can calculate a total cost of ingredients' do
+      expect(burger_patty.total_cost).to eq(10)
+      expect(burger_patty.total_cost).to_not eq(6)
+    end
+  end
 end
