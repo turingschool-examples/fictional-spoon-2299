@@ -23,4 +23,11 @@ RSpec.describe "Ingredients Index Page", type: :feature do
       expect(page).to have_content("Poppyseed Dressing")
     end
   end
+
+  xdescribe "User Story 3, as a visitor visiting '/recipes/:id'" do
+    it 'gives the total cost of the dish (from each ingredient)' do
+      visit "/recipes/#{@recipe_1.id}"
+      expect(page).to have_content(@ingredient_1.cost + @ingredient_2.cost + @ingredient_3.cost)
+    end
+  end
 end
