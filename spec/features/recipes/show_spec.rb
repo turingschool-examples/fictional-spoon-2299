@@ -17,7 +17,9 @@ RSpec.describe "recipe#show" do
     end
 
     it " I see a list of the names of the ingredients for the recipe." do 
-      
+      visit "/recipes/#{@recipe_1.id}"
+      save_and_open_page
+      expect(page).to have_content(@recipe_1.ingredients.name)
     end
   end
 end
