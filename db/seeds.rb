@@ -5,5 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+@recipe_1 = Recipe.create!(name: "Pasta", complexity: 1, genre: "Italian")
+@recipe_2 = Recipe.create!(name: "Cheese Pizza", complexity: 3, genre: "Italian")
+@recipe_3 = Recipe.create!(name: "Chicken Pad Thai", complexity: 4, genre: "Asian")
 @ing_1 = Ingredient.create!(name: "Noodles", cost: 3)
 @ing_2 = Ingredient.create!(name: "Salt", cost: 1)
+@ing_3 = Ingredient.create!(name: "Sauce", cost: 5)
+@pizza = RecipeIngredient.create!(recipe_id: @recipe_2.id, ingredient_id: @ing_3.id)
