@@ -28,6 +28,7 @@ RSpec.describe "recipe#show" do
       RecipeIngredient.create(recipe_id: @recipe_1.id, ingredient_id: @ing_3.id)
 
       visit "/recipes/#{@recipe_1.id}"
+      save_and_open_page
       expect(page).to have_content("Total Cost: 8")
     end
   end
