@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Ingredient, type: :feature do
+RSpec.describe Recipe, type: :feature do
 
   let!(:beef) {Ingredient.create!(name: "Ground Beef", cost: 2)}
   let!(:carrot) {Ingredient.create!(name: "Carrot", cost: 1)}
@@ -18,5 +18,6 @@ RSpec.describe Ingredient, type: :feature do
     expect(page).to have_content("#{stew.complexity}")
     expect(page).to have_content("#{stew.ingredients.first.name}")
     expect(page).to have_content("#{stew.ingredients.last.name}")
+    expect(page).to have_content("#{stew.total_cost}")
   end
 end

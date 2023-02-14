@@ -1,4 +1,4 @@
-<%= @recipe.name %>
-<%= @recipe.complexity %>
-<%= @recipe.ingredients.first.name %>
-<%= @recipe.ingredients.last.name %>
+<%= "Name: #{@recipe.name}" %>
+<%= "Complexity: #{@recipe.complexity}" %>
+<%= "Ingredients: #{@recipe.ingredients.last.name}, #{@recipe.ingredients.first.name}" %>
+<%= "Total Cost: #{@recipe.total_cost}" %>
