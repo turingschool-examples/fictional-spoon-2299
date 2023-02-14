@@ -24,7 +24,6 @@ RSpec.describe "Ingredients Index Page", type: :feature do
   describe "Extension 1 - Ingredients Sorted Alphabetically" do
     it 'lists ingredients in alphebetical order' do
       visit "/ingredients"
-
       expect(@ingredient_2.name).to appear_before(@ingredient_3.name)
       expect(@ingredient_3.name).to appear_before(@ingredient_1.name)
     end
