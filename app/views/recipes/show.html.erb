@@ -1,7 +1,10 @@
 <h1>Recipe</h1>
-<% @recipes.each do |recipe| %>
-  <%= recipe.name%>
-  <%= recipe.complexity%>
-  <%= recipe.genre%>
+<%= @recipe.name%>
+<%= @recipe.complexity%>
+<%= @recipe.genre%>
+
+<% @recipe.ingredients.each do |ingredient|%>
+  <%= ingredient.name%>
+  <%= ingredient.cost%>
 <% end %>
-<h2>Ingredients</h2>
+

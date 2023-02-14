@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
   def show
-    @recipes = Recipe.all
-    # binding.pry
+    @recipe = Recipe.find(params[:id])
   end
 end
