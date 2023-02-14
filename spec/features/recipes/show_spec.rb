@@ -33,7 +33,7 @@ RSpec.describe "Recipe show page" do
 
     it "I see the total cost of all of the ingredients in the recipe" do
       visit "/recipes/#{tacos.id}"
-  
+     
       expect(page).to have_content("Total Cost:")
       expect(page).to have_content("107")
     end
