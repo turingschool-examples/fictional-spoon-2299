@@ -1,0 +1,16 @@
+<section>
+  <h2>Recipe</h2>
+  <h3><%= @recipe.name %>:</h3>
+  <ul>
+    <li>Complexity: <%= @recipe.complexity%></li>
+    <li>Genre: <%= @recipe.genre %></li><br>
+  </ul>
+</section>
+<section>
+  <h2>Recipe Ingredients:</h2>
+  <ul>
+    <% @recipe_ingredients.each do |ingredient|%>
+      <li><%= ingredient.name %></li><br>
+    <% end %>
+  </ul>
+</section>
