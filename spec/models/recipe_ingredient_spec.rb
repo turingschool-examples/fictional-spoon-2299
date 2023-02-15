@@ -17,4 +17,10 @@ RSpec.describe RecipeIngredient, type: :model do
       expect(RecipeIngredient.find_ingredients(@pizza.id)).to eq([@onion, @olives])
     end
   end
+
+  describe '#total_cost' do
+    it 'finds all ingredients associated to a recipe' do
+      expect(RecipeIngredient.total_cost(@pizza.id)).to eq(5)
+    end
+  end
 end

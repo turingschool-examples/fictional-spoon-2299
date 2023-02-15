@@ -26,7 +26,12 @@ RSpec.describe RecipesController, type: :feature do
         expect(page).to have_content("Recipe Ingredients:")
         expect(page).to have_content(pizza.ingredients.first.name)
         expect(page).to have_content(pizza.ingredients.second.name)
-
+      end
+      
+      it "I see the total cost of all of the ingredients in the recipe" do
+        visit "/recipes/#{pizza.id}"
+        
+        expect(page).to have_content("Total Cost for Ingredients: #{@total_cost}")
       end
     end
   end
