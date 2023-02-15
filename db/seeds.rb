@@ -8,9 +8,9 @@
 
 @ingredients = Ingredient.create([{name: "Onion", cost: 2}, {name: "Olives", cost: 3}, {name: "Cilantro", cost: 1}])
 @recipes = Recipe.create([{name: 'Pizza', complexity: 2, genre: "Italian"}, {name: 'Garden Salad', complexity: 3, genre: "Greek"}])
-
-RecipeIngredient.create(recipe_id: @recipes.first, ingredient_id: @ingredients.second)
-RecipeIngredient.create(recipe_id: @recipes.first, ingredient_id: @ingredients.first)
-RecipeIngredient.create(recipe_id: @recipes.second, ingredient_id: @ingredients.first)
-RecipeIngredient.create(recipe_id: @recipes.second, ingredient_id: @ingredients.second)
-RecipeIngredient.create(recipe_id: @recipes.second, ingredient_id: @ingredients.third)
+RecipeIngredient.create(recipe_id: @recipes.first.id, ingredient_id: @ingredients.second.id)
+RecipeIngredient.create(recipe_id: @recipes.first.id, ingredient_id: @ingredients.first.id)
+RecipeIngredient.create(recipe_id: @recipes.second.id, ingredient_id: @ingredients.first.id)
+RecipeIngredient.create(recipe_id: @recipes.second.id, ingredient_id: @ingredients.second.id)
+RecipeIngredient.create(recipe_id: @recipes.second.id, ingredient_id: @ingredients.third.id)
+require 'pry'; binding.pry
