@@ -18,7 +18,7 @@ RSpec.describe 'Ingredients Index' do
 
     it 'shows a list of all ingredients in alphabetical order"' do
       visit "/ingredients"
-
+      save_and_open_page
       expect(@ingredient2.name).to appear_before(@ingredient3.name)
       expect(@ingredient2.name).to appear_before(@ingredient1.name)
       expect(@ingredient3.name).to appear_before(@ingredient1.name)
